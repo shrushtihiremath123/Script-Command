@@ -1,0 +1,140 @@
+[root@shell ~]# vi demo.sh
+[root@shell ~]# cat demo.sh
+#!bin/bash
+if [ -f ./root/1.sh ]
+then
+        echo "file exists"
+else
+        echo "file doesnt exist"
+fi
+[root@shell ~]# sh demo.sh
+file doesnt exist
+
+
+[root@shell ~]# vi devops.sh
+[root@shell ~]# cat devops.sh
+#!/bin/bash
+if [ -f ./jsp/devops.txt ]
+then
+        echo "file exists"
+        echo $pwd
+else
+        echo "file doesnt exists"
+        echo "***create file***"
+fi
+
+[root@shell ~]# sh devops.sh
+file doesnt exists
+***create file***
+
+
+
+
+
+#!/bin/bash
+if [ -f ./devops.txt ]
+then
+        echo "file exists"
+else
+        echo "file doesnt exists"
+        echo touch devops.txt
+        echo "file created"
+
+fi
+
+[root@shell ~]# sh devops.sh
+file exists
+
+
+
+#!/bin/bash
+read file
+if [ -f ./$file ]
+then
+        echo "file exists"
+else
+        echo "file not exists"
+        touch $file
+        echo "$file is created"
+fi
+
+
+#!/bin/bash
+if [ -d ./demo ]
+then
+        echo "folder exists"
+else
+        echo "folder not exists"
+fi
+[root@shell ~]# sh sample.sh
+folder not exists
+
+
+#!/bin/bash
+if [ -d ./demo]
+then
+        echo "folder exits"
+else
+        echo "folder not exits"
+        mkdir demo
+        echo "demo folder is created"
+fi
+[root@shell ~]# sh sample1.sh
+sample1.sh: line 2: [: missing `]'
+folder not exits
+demo folder is created
+
+Dynamic file
+#!/bin/bash
+read dir
+if [ -d ./$dir ]
+then
+        echo "folder exits"
+else
+        echo "folder doesnt exits"
+        mkdir $dir
+        echo "$dir folder is created"
+fi
+[root@shell ~]# sh sample2.sh
+
+folder exits
+
+
+#!/bin/bash
+if command -v git
+then
+        echo "installed"
+        git --version
+else
+        echo "not installed"
+        sudo yum install -y
+        echo "git is installed"
+        git --version
+fi
+[root@shell ~]# sh sample3.sh
+/usr/bin/git
+installed
+git version 2.40.1
+
+
+#!/bin/bash
+read name
+if command -v $name
+then
+        echo "intalled"
+        $name --version
+else
+        echo "not installed"
+        sudo yum installed $nmae -y
+        echo "$name is installed
+        $name --version"
+fi
+[root@shell ~]# sh sample4.sh
+
+intalled
+
+
+
+
+
+
